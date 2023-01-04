@@ -10,6 +10,10 @@ if(MSVC)
     add_definitions("-D_CRT_SECURE_NO_WARNINGS=1")
 endif()
 
+if(MSVC)
+    list(APPEND src "${PROJECT_SOURCE_DIR}/Console/logo.rc")
+endif()
+
 add_executable(PawalConsole ${src})
 
 if(MSVC)
