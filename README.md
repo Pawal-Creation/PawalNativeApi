@@ -4,11 +4,11 @@
 
 * Build Library:
     1. Install OpenSSL 
-    2. Add OpenSSL root to environment variable `OPENSSL_ROOT_DIRECTORY` (Windows only)
+    2. Add OpenSSL root to environment variable `OPENSSL_ROOT_DIR` (Windows only)
     3. Run `build.cmd` or `build.sh`
 * Build Console:
     1. Install OpenSSL 
-    2. Add OpenSSL root to environment variable `OPENSSL_ROOT_DIRECTORY` (Windows only)
+    2. Add OpenSSL root to environment variable `OPENSSL_ROOT_DIR` (Windows only)
     3. Run `build_console.cmd` or `build_console.sh`
 * With Cmake(Version 3.14.0+):
 ```cmake
