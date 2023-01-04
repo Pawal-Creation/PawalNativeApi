@@ -14,7 +14,17 @@ include_directories("${INCLUDE_DIR}" "${CPPHTTPLIB_INCLUDE_DIR}" "${OPENSSL_INCL
 
 file(GLOB_RECURSE src "${PROJECT_SOURCE_DIR}/src" "*.h" "*.hpp" "*.cpp" "*.cc")
 
+if(MSVC)
+    add_definitions("-D_CRT_SECURE_NO_WARNINGS=1")
+endif()
+
 add_library(PawalApi ${src})
+
+if(MSVC)
+    target_compile_options(PawalApi PRIVATE /W4 /WX)
+else()
+    target_compile_options(PawalApi PRIVATE -Wall -Wextra -pedantic -Werror)
+endif()
 
 if(${OPENSSL_FOUND})
     target_link_libraries(PawalApi ${OPENSSL_LIBRARIES})

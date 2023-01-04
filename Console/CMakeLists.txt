@@ -6,7 +6,17 @@ include_directories("${INCLUDE_DIR}")
 
 file(GLOB_RECURSE src "${PROJECT_SOURCE_DIR}/Console" "*.h" "*.hpp" "*.cpp" "*.cc")
 
+if(MSVC)
+    add_definitions("-D_CRT_SECURE_NO_WARNINGS=1")
+endif()
+
 add_executable(PawalConsole ${src})
+
+if(MSVC)
+    target_compile_options(PawalConsole PRIVATE /W4 /WX)
+else()
+    target_compile_options(PawalConsole PRIVATE -Wall -Wextra -pedantic -Werror)
+endif()
 
 target_link_libraries(PawalConsole PawalApi)
 

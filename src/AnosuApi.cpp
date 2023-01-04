@@ -79,13 +79,13 @@ std::vector<char> pawal::AnosuApi::LookupImage(const std::string &keyword)
     {
         throw pawal::ApiError{"Should redirect to a new host, but not"};
     }
-    static std::string locationHeader{"Location"};
-    static std::string contentTypeHeader{"Content-Type"};
+    static const std::string locationHeader{"Location"};
+    static const std::string contentTypeHeader{"Content-Type"};
     if (!result->has_header(locationHeader))
     {
         throw pawal::ApiError{"Should redirect to a new host, but not"};
     }
-    std::string &location{result->get_header_value(locationHeader)};
+    const std::string &location{result->get_header_value(locationHeader)};
     std::string domain{pawal::StringTool::GetHttpDomainFromUrl(location)};
     httplib::Client &client{this->GetRequiredClient(domain)};
     std::string format{domain};
@@ -109,7 +109,7 @@ std::vector<char> pawal::AnosuApi::LookupImage(const std::string &keyword)
     {
         throw pawal::ApiError{"Cannot get Content-Type header"};
     }
-    std::string &contentType{result->get_header_value(contentTypeHeader)};
+    const std::string &contentType{result->get_header_value(contentTypeHeader)};
     if(pawal::StringTool::StartWith(contentType,"image"))
     {
         image.assign(result->body.begin(),result->body.end());
