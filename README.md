@@ -20,6 +20,7 @@ fetchcontent_makeavailable(PawalNativeApi)
 target_link_libraries(YourApp PawalApi)
 ```
 
+_NOTE:_ You need set environment variable `ANDROID_OPENSSL_ROOT_DIR` to `OPENSSL for Android` path, if you want to build a Android application
 ## Usage
 
 ```cpp
