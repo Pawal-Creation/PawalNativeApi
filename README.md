@@ -14,7 +14,7 @@
 ```cmake
 include(FetchContent)
 
-fetchcontent_declare(PawalNativeApi GIT_REPOSITORY "git://Pawal-Creation/PawalNativeApi" GIT_TAG "Git tag" SOURCE_DIR "You install path")
+fetchcontent_declare(PawalNativeApi GIT_REPOSITORY "https://Pawal-Creation/PawalNativeApi" GIT_TAG "Git tag" SOURCE_DIR "You install path")
 fetchcontent_makeavailable(PawalNativeApi)
 
 target_link_libraries(YourApp PawalApi)
